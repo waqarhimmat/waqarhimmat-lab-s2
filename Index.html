@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>CRUD operations</title>
+</head>
+<body>
+    <div class = "main-activity">
+        <div class="display">
+            <header>USERS Details</header>
+            <table class="content-table" id="contents-table">
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>EmailAddress</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id = "entryData">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <header>Add / Update userform</header>
+            <form action="" id="my-form" class="form">
+                <label for="inputName" class="form-label">UserName:</label>
+                <input type="text" class="form-control" id="inputName" required pattern="\s*?[a-zA-Z]{1,15}\s*?"><br>
+
+                <label for="inputEmail" class="form-label" style="padding-right: 15px;" >EmailAddress:</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="ageHelp" style="width: 188px;" ><br>
+                <button onclick="resetForm()">reset</button>
+                <button id="addBtn" type="submit">add</button>
+                <button onclick="updateEntry()" id="updateBtn">update</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="album">
+        <h2>Albums</h2>
+    <ul id="orders">
+     
+        <template id="staff-template">
+    <li data-id = '{{id}}'>
+
+        <p>
+            <strong>Album ID:</strong> 
+            <span>{{id}}</span>
+         </p>
+        <p>
+            <strong>Title:</strong> 
+            <span class="noedit title">{{title}}</span>
+            <input class="edit title">
+        </p>
+        <button data-id = '{{id}}' class = 'remove'>X</button>
+        <button class="editOrder noedit">Edit</button>
+        <button class="cancelEdit edit">Cancel</button>
+        <button class="saveEdit edit">Save</button>
+    </li>
+        </template>
+    </ul>
+
+    <h4>Add new album</h4>
+    <p>Title: <input type="text" id="title"></p>
+    <button id="add-staff">Add!</button>
+    </div>
+
+    <script src="./mustache.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
